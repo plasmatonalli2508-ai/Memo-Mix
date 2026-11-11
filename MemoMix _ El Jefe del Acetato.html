@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Memo Mix | El Jefe del Acetato</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;800;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#02040c;--card:rgba(8,18,40,.62);--pink:#ff2bd6;--cyan:#00f0ff;--yellow:#c6ff3d;--orange:#00f0ff;--violet:#7a3cff;--txt:#f4eefc;--mut:#b9a9d6;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{background:var(--bg);color:var(--txt);font-family:'Rajdhani','Segoe UI',system-ui,sans-serif;line-height:1.5;overflow-x:hidden;padding-bottom:calc(90px + env(safe-area-inset-bottom,0px))}
+.disp{font-family:'Orbitron','Segoe UI',sans-serif;letter-spacing:1px}
+nav{position:sticky;top:0;z-index:50;display:flex;gap:6px;overflow-x:auto;padding:10px 14px;background:rgba(2,4,12,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--cyan);box-shadow:0 4px 24px rgba(0,240,255,.2)}
+nav a{flex:none;color:var(--txt);text-decoration:none;font-size:.78rem;font-weight:800;text-transform:uppercase;padding:6px 12px;border-radius:20px;border:1px solid rgba(255,255,255,.18)}
+nav a:hover{background:var(--pink);border-color:var(--pink)}
+section{position:relative;padding:70px 20px 40px;max-width:1100px;margin:0 auto}
+h2{font-family:'Orbitron','Segoe UI',sans-serif;font-size:clamp(1.15rem,4vw,2rem);color:#eaffff;text-shadow:0 0 10px var(--cyan),0 0 28px var(--violet);margin-bottom:26px;text-transform:uppercase;letter-spacing:3px;border-left:4px solid var(--pink);padding-left:14px}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;text-decoration:none;font-weight:800;font-size:.85rem;text-transform:uppercase;padding:11px 20px;border-radius:4px;letter-spacing:1px;color:#031a0c;background:linear-gradient(135deg,#3dff8b,#12b34f);box-shadow:0 0 18px rgba(61,255,139,.45);font-family:inherit}
+.btn.alt{color:#fff;background:linear-gradient(135deg,var(--pink),var(--violet));box-shadow:0 0 18px rgba(255,46,147,.5)}
+.btn.ghost{color:var(--cyan);background:transparent;border:2px solid var(--cyan);box-shadow:none}
+.card{background:var(--card);backdrop-filter:blur(10px);border:1px solid rgba(0,240,255,.35);border-radius:6px;padding:22px;box-shadow:inset 0 0 30px rgba(0,240,255,.07),0 0 20px rgba(0,240,255,.08)}
+.wa-strip{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:26px;padding:14px 16px;border-radius:16px;background:rgba(61,255,139,.07);border:1px dashed rgba(61,255,139,.5)}
+.wa-strip b{font-size:.78rem;color:#7dffb2;text-transform:uppercase;letter-spacing:1px;margin-right:auto}
+.wa-strip .btn{padding:8px 14px;font-size:.75rem}
+
+/* HERO */
+#inicio{max-width:none;min-height:92vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-top:30px;overflow:hidden;background:radial-gradient(circle at 50% 100%,rgba(255,43,214,.3),transparent 55%),radial-gradient(circle at 15% 10%,rgba(122,44,255,.4),transparent 45%),radial-gradient(circle at 90% 20%,rgba(22,224,255,.22),transparent 40%)}
+#inicio::before{content:"";position:absolute;inset:auto 0 0 0;height:42%;background:repeating-linear-gradient(90deg,rgba(255,46,147,.35) 0 2px,transparent 2px 60px),repeating-linear-gradient(0deg,rgba(255,46,147,.35) 0 2px,transparent 2px 40px);transform:perspective(300px) rotateX(60deg);transform-origin:bottom;mask-image:linear-gradient(transparent,#000);-webkit-mask-image:linear-gradient(transparent,#000);animation:grid 3s linear infinite}
+@keyframes grid{to{background-position:60px 40px,60px 40px}}
+.logo{position:relative;z-index:2}
+.logo .m1,.logo .m2{display:block;font-family:'Orbitron','Segoe UI',sans-serif;line-height:.95;font-size:clamp(2.6rem,13vw,7rem);letter-spacing:.12em;color:#fff;text-shadow:0 0 6px #fff,0 0 22px var(--cyan),0 0 55px var(--cyan),0 0 100px var(--violet);animation:flick 5s infinite}@keyframes flick{0%,92%,100%{opacity:1}94%{opacity:.7}96%{opacity:1}98%{opacity:.8}}
+.logo .m2{margin-left:0;color:#ffd9fa;text-shadow:0 0 6px #fff,0 0 22px var(--pink),0 0 55px var(--pink),0 0 100px var(--violet)}
+.stripes{height:14px;margin:18px auto 8px;width:min(420px,80%);height:3px;background:linear-gradient(90deg,transparent,var(--cyan),var(--pink),transparent);box-shadow:0 0 16px var(--cyan)}
+.ribbon{display:inline-block;font-family:'Orbitron','Segoe UI',sans-serif;color:var(--cyan);border:1px solid var(--cyan);padding:6px 18px;letter-spacing:.25em;font-size:clamp(.7rem,2.6vw,1rem);box-shadow:0 0 14px rgba(0,240,255,.5),inset 0 0 14px rgba(0,240,255,.2)}
+.deck{position:relative;z-index:2;margin:34px 0 18px;width:min(300px,72vw);aspect-ratio:1;border-radius:50%;cursor:pointer}
+.platter{position:absolute;inset:0;border-radius:50%;background:repeating-radial-gradient(circle,#0b0b12 0 3px,#17172a 3px 5px);border:4px solid var(--cyan);box-shadow:0 0 0 6px #0b0618,0 0 40px rgba(22,224,255,.6),0 0 90px rgba(255,46,147,.35);animation:spin 5s linear infinite;animation-play-state:paused}
+.deck.on .platter{animation-play-state:running;animation-duration:1.8s}
+@keyframes spin{to{transform:rotate(360deg)}}
+.platter::before{content:"";position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,transparent 0 20%,rgba(255,255,255,.22) 25%,transparent 30% 70%,rgba(255,255,255,.18) 75%,transparent 80%)}
+.label{position:absolute;inset:33%;border-radius:50%;background:conic-gradient(var(--pink),var(--orange),var(--yellow),var(--cyan),var(--pink));display:flex;align-items:center;justify-content:center;font-family:'Orbitron','Segoe UI',sans-serif;color:#10052a;font-size:clamp(.6rem,2.2vw,.85rem);text-align:center;line-height:1.1;border:3px solid #10052a}
+.arm{position:absolute;top:-4%;right:-10%;width:12px;height:62%;background:linear-gradient(#e9e9f5,#7c7c99);border-radius:6px;transform-origin:50% 6px;transform:rotate(-28deg);transition:transform .7s;box-shadow:0 0 10px #000;z-index:3}
+.arm::after{content:"";position:absolute;bottom:-8px;left:-6px;width:24px;height:18px;background:var(--pink);border-radius:4px}
+.deck.on .arm{transform:rotate(8deg)}
+.hint{position:relative;z-index:2;font-size:.8rem;color:var(--mut);text-transform:uppercase;letter-spacing:2px}
+.hero-cta{position:relative;z-index:2;margin-top:18px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+
+/* RECIENTE */
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.date{display:inline-block;font-family:'Orbitron','Segoe UI',sans-serif;font-size:.8rem;background:var(--yellow);color:#101a00;padding:3px 10px;border-radius:3px;margin-bottom:10px}
+.card h3{font-size:1.15rem;margin-bottom:8px;color:var(--cyan)}
+.card p{color:var(--mut);font-size:.92rem;margin-bottom:16px}
+
+/* ESPECTRO */
+#espectro{max-width:none;padding:0;margin:60px 0 0}
+.spec-wrap{position:relative;height:min(78vh,620px);background:radial-gradient(circle,#1b0a38,#05020b 75%);overflow:hidden;border-block:3px solid var(--pink)}
+#spec{position:absolute;inset:0;width:100%;height:100%}
+.spec-ui{position:absolute;left:0;right:0;top:0;padding:26px 20px;z-index:2;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:flex-start;pointer-events:none}
+.spec-ui>*{pointer-events:auto}
+.spec-ui h2{margin:0}
+.spec-ui .modes{display:flex;gap:8px;flex-wrap:wrap}
+.spec-ui .btn{padding:8px 14px;font-size:.72rem}
+.spec-ui .btn.sel{outline:3px solid var(--yellow)}
+
+/* ACERCA */
+.about{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;align-items:start}
+.stats{display:grid;gap:12px}
+.stat{padding:16px;border-left:6px solid var(--pink);background:var(--card);border-radius:0 14px 14px 0}
+.stat b{display:block;font-family:'Orbitron','Segoe UI',sans-serif;color:var(--yellow);font-size:1rem}
+.stat span{color:var(--mut);font-size:.85rem}
+.about p{color:#e0d4f5;margin-bottom:14px}
+
+/* PROXIMAMENTE */
+.classic{position:relative;border:1px solid var(--cyan);background:linear-gradient(135deg,#0a1240,#2a0a4d 60%,#4a0a52);border-radius:8px;padding:28px;margin-bottom:22px;overflow:hidden;box-shadow:0 0 40px rgba(0,240,255,.25),inset 0 0 40px rgba(122,60,255,.25)}
+.classic .tag{display:inline-block;background:var(--pink);font-family:'Orbitron','Segoe UI',sans-serif;font-size:.75rem;padding:4px 12px;border-radius:30px;margin-bottom:10px}
+.classic h3{font-family:'Orbitron','Segoe UI',sans-serif;font-size:clamp(1.1rem,4vw,1.9rem);color:#eaffff;text-shadow:0 0 14px var(--cyan);line-height:1.1;margin-bottom:8px}
+.classic p{max-width:600px;color:#f0e4ff}
+.sundays{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.sun{text-align:center;padding:16px 10px}
+.sun b{display:block;font-family:'Orbitron','Segoe UI',sans-serif;font-size:2rem;color:var(--cyan)}
+.sun span{font-size:.78rem;color:var(--mut);text-transform:uppercase}
+
+/* COLABORADORES */
+.soon{text-align:center;padding:40px 20px;border:1px dashed var(--cyan);border-radius:8px;color:var(--mut)}
+.soon .disp{font-size:1.5rem;color:var(--cyan);margin-bottom:6px}
+
+/* TIENDA */
+.car-wrap{position:relative}
+.car{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 4px 18px;scrollbar-width:thin}
+.prod{flex:0 0 min(270px,78%);scroll-snap-align:start;padding:0;overflow:hidden}
+.pimg{height:190px;display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative}
+.pimg::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent 0 14px,rgba(255,255,255,.08) 14px 16px)}
+.pbody{padding:16px}
+.pbody h3{font-size:1.05rem;margin-bottom:4px}
+.pbody p{font-size:.82rem;color:var(--mut);margin-bottom:10px;min-height:38px}
+.price{font-family:'Orbitron','Segoe UI',sans-serif;color:var(--yellow);font-size:1.5rem;margin-bottom:10px}
+.arrows{display:flex;gap:10px;justify-content:flex-end;margin-bottom:10px}
+.arrows button{width:44px;height:44px;border-radius:50%;border:2px solid var(--cyan);background:transparent;color:var(--cyan);font-size:1.2rem;cursor:pointer}
+.arrows button:hover{background:var(--cyan);color:#000}
+
+/* REDES / CONTACTO */
+.socials{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.soc{display:block;text-decoration:none;color:#fff;text-align:center;padding:30px 16px;border-radius:8px;border:1px solid rgba(0,240,255,.4);box-shadow:0 0 22px rgba(0,240,255,.15);transition:transform .2s}
+.soc:hover{transform:translateY(-6px) rotate(-1deg)}
+.soc .ic{font-size:3rem;display:block}
+.soc b{font-family:'Orbitron','Segoe UI',sans-serif;font-size:1.3rem}
+.soc span{display:block;font-size:.8rem;opacity:.85}
+.tk{background:linear-gradient(135deg,#0b0b0b,#ff0050 140%)}.yt{background:linear-gradient(135deg,#b30000,#ff3b3b)}.fb{background:linear-gradient(135deg,#0d3b9e,#1877f2)}
+.contact{text-align:center}
+.nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:10px}
+.num{padding:26px}
+.num b{display:block;font-family:'Orbitron','Segoe UI',sans-serif;font-size:1.1rem;margin:6px 0 14px;color:#7dffb2}
+footer{text-align:center;padding:30px 20px;color:var(--mut);font-size:.78rem;border-top:2px solid var(--pink)}
+footer b{color:var(--cyan)}
+
+/* WA FLOTANTE */
+.wa-fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:99;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.wa-fab .opts{display:none;flex-direction:column;gap:8px}
+.wa-fab.open .opts{display:flex}
+.wa-fab .main{padding:14px 22px;font-size:.9rem;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(61,255,139,.7)}50%{box-shadow:0 0 0 14px rgba(61,255,139,0)}}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:200;background:repeating-linear-gradient(0deg,rgba(0,240,255,.035) 0 1px,transparent 1px 3px)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#inicio">Inicio</a><a href="#reciente">Lo más reciente</a><a href="#espectro">Espectro</a><a href="#acerca">Acerca de</a><a href="#proximamente">Próximamente</a><a href="#colabs">Colaboran</a><a href="#tienda">Tienda</a><a href="#redes">Redes</a><a href="#contacto">Contacto</a>
+</nav>
+
+<!-- INICIO -->
+<section id="inicio">
+  <div class="logo"><span class="m1">MEMO</span><span class="m2">MIX</span></div>
+  <div class="stripes"></div>
+  <div class="ribbon">EL JEFE DEL ACETATO</div>
+  <div class="deck" id="deck" onclick="togglePlay()" role="button" aria-label="Girar consola">
+    <div class="platter"><div class="label">MEMO<br>MIX<br>★ 100% ★<br>ACETATO</div></div>
+    <div class="arm"></div>
+  </div>
+  <p class="hint" id="hint">Toca la consola para ponerle ritmo</p>
+  <div class="hero-cta">
+    <a class="btn alt" href="#proximamente">Domingos en Tepito</a>
+    <a class="btn ghost" href="#tienda">Artículos Memo Mix</a>
+  </div>
+</section>
+
+<!-- LO MAS RECIENTE -->
+<section id="reciente">
+  <h2>⚡ Lo más reciente</h2>
+  <div class="grid2">
+    <article class="card">
+      <span class="date">NUEVO</span>
+      <h3>¡EXITASOS!</h3>
+      <p>Dale play a “Exitasos”, lo más reciente de Memo Mix: acetato puro, sin IA ni ediciones y con el sabor de barrio que solo El Jefe del Acetato sabe levantar.</p>
+      <a class="btn alt" data-link="video" target="_blank" rel="noopener">▶ Ver Exitasos</a>
+    </article>
+    <article class="card">
+      <span class="date">HISTORIA</span>
+      <h3>LA HISTORIA DE UN RUMBERO</h3>
+      <p>El recorrido de un rumbero de barrio contado desde la música de Memo Mix y el sonido tradicional del vinil.</p>
+      <a class="btn alt" data-link="rumbero" target="_blank" rel="noopener">▶ Ver historia</a>
+    </article>
+  </div>
+</section>
+
+<!-- ESPECTRO -->
+<section id="espectro">
+  <div class="spec-wrap">
+    <canvas id="spec"></canvas>
+    <div class="spec-ui">
+      <h2>🌀 Espectro sonoro</h2>
+      <div class="modes">
+        <button class="btn alt sel" data-mode="0">Vórtice</button>
+        <button class="btn alt" data-mode="1">Túnel</button>
+        <button class="btn alt" data-mode="2">Barras</button>
+        <button class="btn ghost" onclick="togglePlay()">▶ Dale al beat</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACERCA -->
+<section id="acerca">
+  <h2>🎚 Acerca de Memo Mix</h2>
+  <div class="about">
+    <div>
+      <p><b>Origen y pasión por el vinil.</b> Se ha posicionado como uno de los máximos exponentes de la nueva generación de sonideros, destacado por su labor como coleccionista de música en discos de acetato/vinil, convirtiéndose en un referente del sonido tradicional de barrio.</p>
+      <p><b>Memo Mix, “El Jefe del Acetato”</b>, es sonidero de cepa: música 100% en acetato, sin IA y sin ediciones, con el sabor que solo da el vinil sonando fuerte en la calle.</p>
+      <p>Su casa es Tepito, CDMX, y su sello son <b>Los Sonidos Pesados</b>: ambiente de barrio, clásicos de baile y una banda sonidera que no falla. Hoy da el salto digital para que todo el que quiera bailar pueda encontrarlo, escucharlo y contratarlo.</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>100% ACETATO</b><span>Vinil puro, sin IA ni ediciones</span></div>
+      <div class="stat"><b>CADA DOMINGO</b><span>Callejón de las Flores, Tepito</span></div>
+      <div class="stat"><b>TEPITO CDMX</b><span>Sonidero de barrio, Los Sonidos Pesados</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROXIMAMENTE -->
+<section id="proximamente">
+  <h2>Próximamente</h2>
+  <div class="classic">
+    <span class="tag">UN CLÁSICO DEL BARRIO</span>
+    <h3>Cada domingo en el Callejón de las Flores</h3>
+    <p>Tepito, CDMX. El baile que ya es tradición: acetato en vivo, banqueta llena y el Jefe tras la consola. Todos los domingos a las 12:00 pm. ¡Llega y baila!</p>
+    <div style="margin-top:16px"><a class="btn" data-wa="Hola, quiero informes del domingo en el Callejón de las Flores 🎶" target="_blank" rel="noopener">Preguntar por WhatsApp</a></div>
+  </div>
+  <div class="sundays" id="sundays"></div>
+</section>
+
+<!-- COLABORADORES -->
+<section id="colabs">
+  <h2>🤝 Sonidos que colaboran</h2>
+  <div class="soon"><div class="disp">Muy pronto</div>Aquí presentaremos a los sonidos y la banda sonidera que se juntan con Memo Mix.</div>
+</section>
+
+<!-- TIENDA -->
+<section id="tienda">
+  <h2>🛒 Artículos Memo Mix</h2>
+  <div class="arrows"><button onclick="slide(-1)" aria-label="Anterior">◀</button><button onclick="slide(1)" aria-label="Siguiente">▶</button></div>
+  <div class="car" id="car"></div>
+  <p style="font-size:.78rem;color:var(--mut)">Iremos subiendo más artículos.</p>
+</section>
+
+<!-- REDES -->
+<section id="redes">
+  <h2>📡 Redes oficiales</h2>
+  <div class="socials">
+    <a class="soc tk" data-link="tiktok" target="_blank" rel="noopener"><span class="ic">🎵</span><b>TikTok</b><span>Videos del Callejón</span></a>
+    <a class="soc yt" data-link="youtube" target="_blank" rel="noopener"><span class="ic">▶️</span><b>YouTube</b><span>La Fleximanía Música Sonidera</span></a>
+    <a class="soc fb" data-link="facebook" target="_blank" rel="noopener"><span class="ic">👍</span><b>Facebook</b><span>Eventos y comunidad</span></a>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="contact">
+  <h2>💬 Contrata a Memo Mix</h2>
+  <p style="color:var(--mut);margin-bottom:20px">Eventos, bailes, bodas, XV años y fiestas de barrio. Escríbele directo por WhatsApp.</p>
+  <div class="nums" id="nums"></div>
+</section>
+
+<footer>© 2026 <b>MEMO MIX</b> · El Jefe del Acetato · Tepito CDMX<br>Diseño: <b>PLASMA TONALLI</b></footer>
+
+<div class="wa-fab" id="fab">
+  <div class="opts" id="fabopts"></div>
+  <button class="btn main" onclick="document.getElementById('fab').classList.toggle('open')">💬 WhatsApp</button>
+</div>
+
+<script>
+/* ===== CONFIGURACIÓN: aquí se cambian números y enlaces ===== */
+const CFG={
+  wa:[{label:'Memo Mix · WhatsApp',num:'525645663212'}]/* el 2.º celular se agrega aquí */,
+  links:{youtube:'https://www.youtube.com/@LaFleximaniaMusicaSonidera',tiktok:'https://www.tiktok.com/@memomixtepito',facebook:'https://www.facebook.com/p/MemoMix-Tepito-El-Jefe-del-Vinil-100067208967243/?locale=es_LA',video:'https://youtu.be/wFJIIhNU4Zg?si=avgDnh5Vv8KwGsPk',rumbero:'https://www.youtube.com/watch?v=Dg_vvZIBQ4I'}
+};
+const PRODS=[
+  {n:'Playeras Memo Mix',d:'Diseño oficial, tallas CH a XXL.',p:280,e:'👕',c:'#ff2bd6,#7a3cff'},
+  {n:'Gorras El Jefe del Acetato',d:'Bordado, ajustable.',p:220,e:'🧢',c:'#00f0ff,#7a3cff'},
+  {n:'Sudaderas Memo Mix',d:'Para las tardes y noches de baile.',p:500,e:'🧥',c:'#7a3cff,#ff2bd6'},
+  {n:'Llaveros Memo Mix',d:'Pieza ligera para tus llaves.',p:150,e:'🔑',c:'#c6ff3d,#00f0ff'},
+  {n:'Calcomanías UV',d:'Resistentes al sol y al agua.',p:40,e:'✨',c:'#00f0ff,#ff2bd6'}
+];
+const wa=(n,m)=>`https://wa.me/${n}?text=${encodeURIComponent(m)}`;
+
+/* WhatsApp en cada bloque */
+document.getElementById('fabopts').innerHTML=CFG.wa.map(w=>`<a class="btn" target="_blank" rel="noopener" href="${wa(w.num,'Hola Memo Mix, te escribo desde tu página 🎶')}">${w.label}</a>`).join('');
+document.getElementById('nums').innerHTML=CFG.wa.map((w,i)=>`<div class="card num"><div style="font-size:2.2rem">📱</div><b>${CFG.wa.length>1?'Celular '+(i+1):'WhatsApp'}</b><a class="btn" target="_blank" rel="noopener" href="${wa(w.num,'Hola Memo Mix, quiero contratar tu sonido 🎶')}">Escribir por WhatsApp</a></div>`).join('');
+document.querySelectorAll('[data-link]').forEach(a=>a.href=CFG.links[a.dataset.link]);
+document.querySelectorAll('[data-wa]').forEach(a=>a.href=wa(CFG.wa[0].num,a.dataset.wa));
+
+/* Carrusel */
+document.getElementById('car').innerHTML=PRODS.map(p=>`<article class="card prod"><div class="pimg" style="background:linear-gradient(135deg,${p.c})">${p.e}</div><div class="pbody"><h3>${p.n}</h3><p>${p.d}</p><div class="price">$${p.p} MXN</div><a class="btn" target="_blank" rel="noopener" href="${wa(CFG.wa[0].num,'Hola Memo Mix, quiero pedir: '+p.n+' ($'+p.p+' MXN)')}">💬 Pedir por WhatsApp</a></div></article>`).join('');
+function slide(d){const c=document.getElementById('car');c.scrollBy({left:d*290,behavior:'smooth'})}
+
+/* Próximos domingos */
+(function(){const el=document.getElementById('sundays'),d=new Date();d.setDate(d.getDate()+((7-d.getDay())%7));
+const M=['ENE','FEB','MAR','ABR','MAY','JUN','JUL','AGO','SEP','OCT','NOV','DIC'];
+for(let i=0;i<4;i++){el.insertAdjacentHTML('beforeend',`<div class="card sun"><span>Domingo</span><b>${d.getDate()} ${M[d.getMonth()]}</b><span>Callejón de las Flores · 12:00 pm</span></div>`);d.setDate(d.getDate()+7)}})();
+
+/* ===== Espectro inmersivo ===== */
+let playing=false,mode=0;
+function togglePlay(){playing=!playing;document.getElementById('deck').classList.toggle('on',playing);
+document.getElementById('hint').textContent=playing?'🔊 ¡Suena el acetato! Toca otra vez para parar':'Toca la consola para ponerle ritmo'}
+document.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>{mode=+b.dataset.mode;document.querySelectorAll('[data-mode]').forEach(x=>x.classList.toggle('sel',x===b))});
+const cv=document.getElementById('spec'),cx=cv.getContext('2d');let W,H;
+function rs(){const r=cv.getBoundingClientRect(),dp=Math.min(devicePixelRatio||1,2);W=cv.width=r.width*dp;H=cv.height=r.height*dp}
+addEventListener('resize',rs);rs();
+const N=64,lv=new Array(N).fill(0);let t=0,kick=0;
+function frame(){
+  t+=.016;const bpm=playing?2.1:.7;const ph=(t*bpm)%1;
+  kick=Math.max(kick*.9,ph<.1?1-ph*10:0);
+  for(let i=0;i<N;i++){const base=playing?.35:.1,f=i/N;
+    const v=base*(1-f*.6)*(.6+.4*Math.sin(t*3+i*.7))+(playing?kick*(1-f)*.7:kick*.1)+(playing?Math.random()*.18*(1-f*.5):0);
+    lv[i]+=(Math.min(v,1)-lv[i])*.35}
+  cx.fillStyle='rgba(5,2,11,.28)';cx.fillRect(0,0,W,H);
+  const cxn=W/2,cyn=H/2,R=Math.min(W,H);
+  cx.lineCap='round';
+  if(mode===0){ // vórtice radial
+    for(let k=0;k<2;k++)for(let i=0;i<N*2;i++){const j=i%N,a=(i/(N*2))*Math.PI*2+t*(k?-.4:.4),r0=R*(.16+kick*.03)*(1+k*.55),l=lv[j]*R*.22*(k?.7:1);
+      cx.strokeStyle=`hsl(${(i*3+t*80)%360},100%,${55+lv[j]*20}%)`;cx.lineWidth=R*.008;cx.beginPath();cx.moveTo(cxn+Math.cos(a)*r0,cyn+Math.sin(a)*r0);cx.lineTo(cxn+Math.cos(a)*(r0+l),cyn+Math.sin(a)*(r0+l));cx.stroke()}
+    cx.fillStyle=`hsl(${(t*60)%360},100%,60%)`;cx.beginPath();cx.arc(cxn,cyn,R*.07*(1+kick*.4),0,7);cx.fill();
+  }else if(mode===1){ // túnel
+    for(let i=12;i>=0;i--){const z=((t*(playing?.9:.3)+i/13)%1),s=z*z*R*1.1+kick*R*.03;
+      cx.strokeStyle=`hsl(${(i*28+t*70)%360},100%,${50+kick*20}%)`;cx.lineWidth=2+z*R*.012;cx.shadowBlur=18;cx.shadowColor=cx.strokeStyle;
+      cx.strokeRect(cxn-s*.9,cyn-s*.55,s*1.8,s*1.1)}cx.shadowBlur=0;
+  }else{ // barras
+    const bw=W/N;for(let i=0;i<N;i++){const h=lv[i]*H*.8+4;cx.fillStyle=`hsl(${i*5+t*60},100%,58%)`;
+      cx.fillRect(i*bw+2,H-h,bw-4,h);cx.fillRect(i*bw+2,0,bw-4,h*.25)}
+  }
+  requestAnimationFrame(frame)}
+frame();
+</script>
+</body>
+</html>
