@@ -48,6 +48,9 @@ h2{font-family:'Orbitron','Segoe UI',sans-serif;font-size:clamp(1.15rem,4vw,2rem
 .date{display:inline-block;font-family:'Orbitron','Segoe UI',sans-serif;font-size:.8rem;background:var(--yellow);color:#101a00;padding:3px 10px;border-radius:3px;margin-bottom:10px}
 .card h3{font-size:1.15rem;margin-bottom:8px;color:var(--cyan)}
 .card p{color:var(--mut);font-size:.92rem;margin-bottom:16px}
+.video-thumb{display:block;position:relative;aspect-ratio:16/9;overflow:hidden;margin:-22px -22px 18px;border-radius:6px 6px 0 0}
+.video-thumb img{display:block;width:100%;height:100%;object-fit:cover}
+.video-thumb span{position:absolute;inset:0;display:grid;place-items:center;color:#fff;font-size:3rem;background:rgba(0,0,0,.25)}
 
 /* ESPECTRO */
 #espectro{max-width:none;padding:0;margin:60px 0 0}
@@ -159,12 +162,20 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:200;ba
   <h2>⚡ Lo más reciente</h2>
   <div class="grid2">
     <article class="card">
+      <a class="video-thumb" href="https://youtu.be/wFJIIhNU4Zg" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/wFJIIhNU4Zg/hqdefault.jpg" alt="Miniatura del video Exitasos">
+        <span aria-hidden="true">▶</span>
+      </a>
       <span class="date">NUEVO</span>
       <h3>¡EXITASOS!</h3>
       <p>Dale play a “Exitasos”, lo más reciente de Memo Mix: acetato puro, sin IA ni ediciones y con el sabor de barrio que solo El Jefe del Acetato sabe levantar.</p>
       <a class="btn alt" data-link="video" target="_blank" rel="noopener">▶ Ver Exitasos</a>
     </article>
     <article class="card">
+      <a class="video-thumb" href="https://www.youtube.com/watch?v=Dg_vvZIBQ4I" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/Dg_vvZIBQ4I/hqdefault.jpg" alt="Miniatura de La historia de un rumbero">
+        <span aria-hidden="true">▶</span>
+      </a>
       <span class="date">HISTORIA</span>
       <h3>LA HISTORIA DE UN RUMBERO</h3>
       <p>El recorrido de un rumbero de barrio contado desde la música de Memo Mix y el sonido tradicional del vinil.</p>
